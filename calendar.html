@@ -3,36 +3,160 @@
 <head>
 <meta charset="UTF-8">
 <title>U Did Good</title>
+<link rel="stylesheet" type="text/css" href="fastui.css">
 <style>
 .grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  padding: 10px;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+}
+.grid-item {
+    border: 1px solid rgb(0, 0, 0);
+    padding: 20px;
+    text-align: center;
+}
+</style>
+    <style>
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.grid-item {
-  border: 1px solid rgb(0, 0, 0);
-  padding: 20px;
-  text-align: center;
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 </style>
 </head>
 
 <body>
-	<h1>The U Did Good Calender of Events</h1>
+<h1>The U Did Good Calender of Events</h1>
 <div class="grid-container">
   <div class="grid-item">
-		<input type="checkbox" name="all" value="All" checked> All<br>
-<input type="checkbox" name="category2" value="category2"> Category2<br>
-<input type="checkbox" name="category3" value="category3">Category3<br>
-<input type="checkbox" name="category4" value="category4">Category4<br>
-<input type="checkbox" name="category5" value="category5">Category5<br>
-<input type="checkbox" name="category6" value="category6">Category6<br>
-<input type="checkbox" name="category7" value="category7">Category7<br>
-	</div>
+    <input type="checkbox" id="myCheck1" name="all" value="All" checked onclick="myFunction();">
+    All<br>
+    <input type="checkbox" id="myCheck2" name="category2" value="c2" on onclick="myFunction();">
+    Category2<br>
+    <input type="checkbox" id="myCheck3" name="category3" value="c3" onclick="myFunction();">
+    Category3<br>
+    <input type="checkbox" id="myCheck4" name="category4" value="c4" onclick="myFunction();">
+    Category4<br>
+    <input type="checkbox" id="myCheck5" name="category5" value="c5" onclick="myFunction();">
+    Category5<br>
+    <input type="checkbox" id="myCheck6" name="category6" value="c6" onclick="myFunction();">
+    Category6<br>
+    <input type="checkbox" id="myCheck7" name="category7" value="c7" onclick="myFunction();">
+    Category7<br>
+    <input type="checkbox" id="myCheck8" name="category8" value="c8" onclick="myFunction();">
+    Category7<br>
+  </div>
   <div class="grid-item">
-<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FChicago&amp;src=d2FsdGVyamFtZXNwZXJyeUBnbWFpbC5jb20&amp;src=ZmxobGt0YTNrZXE4dDIxbmYxYjMxOWtrcWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=aDIxdjhhbnAwNThsaWpqaHBva2ZubGRuMGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=a25iNmhnNWQwZzRsdWpwdHN1anM4b3Q4aDBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=ZXFkc2I0OW83aXN0c2VhMXJhOGt2cWo3cjhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=cWkzNDJhamlxajBhZHUwdG9zcTA2YTY0bmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=YzFrYjMydjQ2Z3FvZjg1cG03bHRtbzk5OGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dDh0cGxwaDU2YW0wYzU2MmMyZXUwZGxvMGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23E67C73&amp;color=%23C0CA33&amp;color=%233F51B5&amp;color=%23A79B8E&amp;color=%23E67C73&amp;color=%23F09300&amp;color=%23D50000&amp;color=%23A79B8E&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-	</div>
+    <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FChicago&amp;src=d2FsdGVyamFtZXNwZXJyeUBnbWFpbC5jb20&amp;src=ZmxobGt0YTNrZXE4dDIxbmYxYjMxOWtrcWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=aDIxdjhhbnAwNThsaWpqaHBva2ZubGRuMGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=a25iNmhnNWQwZzRsdWpwdHN1anM4b3Q4aDBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=ZXFkc2I0OW83aXN0c2VhMXJhOGt2cWo3cjhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=cWkzNDJhamlxajBhZHUwdG9zcTA2YTY0bmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=YzFrYjMydjQ2Z3FvZjg1cG03bHRtbzk5OGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dDh0cGxwaDU2YW0wYzU2MmMyZXUwZGxvMGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23E67C73&amp;color=%23C0CA33&amp;color=%233F51B5&amp;color=%23A79B8E&amp;color=%23E67C73&amp;color=%23F09300&amp;color=%23D50000&amp;color=%23A79B8E&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTabs=0&amp;mode=WEEK" style="border-width:0" width="800" height="600" frameborder="0" scrolling="yes"></iframe>
+  </div>
+  <div class="grid-item">Placeholder Text</div>
+  <div class="grid-item">
+    <p id="text" style="display:none">Checkbox is CHECKED!</p>
+    <p id="text1" style="display:none"></p>
+  </div>
+  <div class="grid-item">
+    <label class="container">One
+      <input type="checkbox" checked="checked">
+      <span class="checkmark"></span> </label>
+    <label class="container">Two
+      <input type="checkbox">
+      <span class="checkmark"></span> </label>
+    <label class="container">Three
+      <input type="checkbox">
+      <span class="checkmark"></span> </label>
+    <label class="container">Four
+      <input type="checkbox">
+      <span class="checkmark"></span> </label>
+  </div>
+  <div class="grid-item">Placeholder Text</div>
 </div>
+<script>
+    function myFunction() {
+        
+        var x = document.getElementsByClassName("td.bubble-mid");
+        var i;
+        for (i = 0; i < x.length; i++) {
+        x[i].style.backgroundColor = "red";
+        }
+            //var aBtn = document.getElementsByClassName("");
+        //var checkBox = document.getElementById("myCheck2");
+        //var chk=document.getElementById("myCheck2").value;
+        //var text = document.getElementById("text");
+        //var text1 = document.getElementById("text1");
+        //if (checkBox.checked == true){
+        //    text1.innerHTML = chk;
+        //    text.style.display = "block";
+        //    text1.style.display = "block";
+        //    
+        //} else {
+        //    text.style.display = "none";
+        //    text1.style.display = "none";
+        //}
+        //var x = document.getElementById("myCheck");
+        //x.checked = true;
+    }
+</script>
 </body>
 </html>
