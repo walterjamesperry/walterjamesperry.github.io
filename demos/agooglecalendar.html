@@ -173,7 +173,10 @@ document.addEventListener('DOMContentLoaded', function() {
     //curSource[6] = newSource[6];
     });
 });
-    
+    // send text to the Wix page code
+      function sendMessageToWix() {
+        window.parent.postMessage($("#theText").value, "*");
+      }
 </script>
 </head>
 <body>
@@ -185,37 +188,52 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="loading">loading...</div>
 <div class="grid-container">
   <div class="grid-item">
-    <label for="myCheck1"><input type="checkbox" id="myCheck1" checked>
-        Cat 1 All<br></label>
-    <label for="myCheck2"><input type="checkbox" id="myCheck2" class="other">
-    Cat 2 Animal<br></label>
-    <label for="myCheck3"><input type="checkbox" id="myCheck3" class="other">
-    Cat 3 Art/Culture<br></label>
-    <label for="myCheck4"><input type="checkbox" id="myCheck4" class="other">
-    Cat 4 Education<br></label>
-    <label for="myCheck5"><input type="checkbox" id="myCheck5" class="other">
-    Cat 5 Environment<br></label>
-    <label for="myCheck6"><input type="checkbox" id="myCheck6" class="other">
-    Cat 6 Food<br></label>
-    <label for="myCheck7"><input type="checkbox" id="myCheck7" class="other">
-    Cat 7 Humanities<br></label>
+    <label for="myCheck1">
+      <input type="checkbox" id="myCheck1" checked>
+      Cat 1 All<br>
+    </label>
+    <label for="myCheck2">
+      <input type="checkbox" id="myCheck2" class="other">
+      Cat 2 Animal<br>
+    </label>
+    <label for="myCheck3">
+      <input type="checkbox" id="myCheck3" class="other">
+      Cat 3 Art/Culture<br>
+    </label>
+    <label for="myCheck4">
+      <input type="checkbox" id="myCheck4" class="other">
+      Cat 4 Education<br>
+    </label>
+    <label for="myCheck5">
+      <input type="checkbox" id="myCheck5" class="other">
+      Cat 5 Environment<br>
+    </label>
+    <label for="myCheck6">
+      <input type="checkbox" id="myCheck6" class="other">
+      Cat 6 Food<br>
+    </label>
+    <label for="myCheck7">
+      <input type="checkbox" id="myCheck7" class="other">
+      Cat 7 Humanities<br>
+    </label>
   </div>
   <div class="grid-item">
     <div id="calendar"></div>
   </div>
-    <div class="grid-item">&nbsp;</div>
-    <div class="grid-item">
-        <p>You are going to the following Events:</p>
-        <!-- This is where the event titles are appended to by jQery -->
-        <ol></ol>
-    </div>
-    <div class="grid-item">&nbsp;</div>
-    <div class="grid-item">
-  <!-- hidden on load by jquery code -->
-  <div id="dialog-confirm" title="Interested in Volunteering for this Event?">
-    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Confirm your Participation at this event?</p>
+  <div class="grid-item">&nbsp;</div>
+  <div class="grid-item">
+    <p>You are going to the following Events:</p>
+    <!-- This is where the event titles are appended to by jQery -->
+    <ol>
+    </ol>
   </div>
-        </div>
+  <div class="grid-item">&nbsp;</div>
+  <div class="grid-item"> 
+    <!-- hidden on load by jquery code -->
+    <div id="dialog-confirm" title="Interested in Volunteering for this Event?">
+      <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Confirm your Participation at this event?</p>
+    </div>
+  </div>
 </div>
 <script>
     //unchecks all other checkboxes when checkbox 1 is checked
