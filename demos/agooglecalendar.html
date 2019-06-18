@@ -6,7 +6,7 @@
 <link href="../packages/core/main.css" rel="stylesheet" />
 <link href="../packages/daygrid/main.css" rel="stylesheet" />
 <link href="../packages/list/main.css" rel="stylesheet" />
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="style.css">
 <script src="../packages/core/main.js"></script>
 <script src="../packages/interaction/main.js"></script>
@@ -15,6 +15,21 @@
 <script src="../packages/google-calendar/main.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            padding: 5px;
+        }
+.all {background-color: #4CAF50; color: white;}
+.environment {background-color: #80dc7f; color: white;}
+.humanities {background-color: #80dbd4; color: white;}
+.animals {background-color: #dee21f; color: white;}
+.food {background-color: #f8a8c4; color: white;}
+.education {background-color: #cfa8e1; color: white;}
+.artCulture {background-color: #e5b514; color: white;}
+    </style>
 <script>
 var curSource = new Array();
 curSource[0] = {
@@ -27,43 +42,43 @@ curSource[0] = {
 curSource[1] = {
     id: 'cat2',
     googleCalendarId: 'flhlkta3keq8t21nf1b319kkqc@group.calendar.google.com',
-    color: 'orange',   
-    textColor: 'black',
+    color: '#80dc7f',   
+    textColor: 'white',
     className: 'cat2'
     };
 curSource[2] = {
     id: 'cat3',
     googleCalendarId: 'h21v8anp058lijjhpokfnldn0k@group.calendar.google.com',
-    color: 'yellow',   
-    textColor: 'black',
+    color: '#80dbd4',   
+    textColor: 'white',
     className: 'cat3'
     };
 curSource[3] = {
     id: 'cat4',
     googleCalendarId: 'knb6hg5d0g4lujptsujs8ot8h0@group.calendar.google.com',
-    color: 'green',   
-    textColor: 'black',
+    color: '#dee21f',   
+    textColor: 'white',
     className: 'cat4'
     };
 curSource[4] = {
     id: 'cat5',
     googleCalendarId: 'eqdsb49o7istsea1ra8kvqj7r8@group.calendar.google.com',
-    color: 'blue',   
-    textColor: 'black',
+    color: '#f8a8c4',   
+    textColor: 'white',
     className: 'cat5'
     };
 curSource[5] = {
     id: 'cat6',
     googleCalendarId: 'qi342ajiqj0adu0tosq06a64ng@group.calendar.google.com',
-    color: 'indigo',   
-    textColor: 'black',
+    color: '#cfa8e1',   
+    textColor: 'white',
     className: 'cat6'
     };
 curSource[6] = {
     id: 'cat7',
     googleCalendarId: 'c1kb32v46gqof85pm7ltmo998g@group.calendar.google.com',
-    color: 'violet',   
-    textColor: 'black',
+    color: '#e5b514',   
+    textColor: 'white',
     className: 'cat7'
     };
 var newSource = new Array(); //we'll use this later
@@ -180,42 +195,43 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </head>
 <body>
-<!-- 
-<div>
-  <p id="answer"></p>
-</div>
--->
 <div id="loading">loading...</div>
 <div class="grid-container">
   <div class="grid-item">
-    <label for="myCheck1">
-      <input type="checkbox" id="myCheck1" checked>
-      Cat 1 All<br>
-    </label>
-    <label for="myCheck2">
-      <input type="checkbox" id="myCheck2" class="other">
-      Cat 2 Animal<br>
-    </label>
-    <label for="myCheck3">
-      <input type="checkbox" id="myCheck3" class="other">
-      Cat 3 Art/Culture<br>
-    </label>
-    <label for="myCheck4">
-      <input type="checkbox" id="myCheck4" class="other">
-      Cat 4 Education<br>
-    </label>
-    <label for="myCheck5">
-      <input type="checkbox" id="myCheck5" class="other">
-      Cat 5 Environment<br>
-    </label>
-    <label for="myCheck6">
-      <input type="checkbox" id="myCheck6" class="other">
-      Cat 6 Food<br>
-    </label>
-    <label for="myCheck7">
-      <input type="checkbox" id="myCheck7" class="other">
-      Cat 7 Humanities<br>
-    </label>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>Categories</p>
+      <table>
+          <tr><td class="all">
+    <label for="myCheck1"><input type="checkbox" id="myCheck1" checked>All</label>
+            </td></tr>
+          <tr><td class="environment">
+    <label for="myCheck2"><input type="checkbox" id="myCheck2" class="other">Environment</label>
+              </td></tr>
+          <tr><td class="humanities">
+    <label for="myCheck3"><input type="checkbox" id="myCheck3" class="other">Humanities</label>
+              </td></tr>
+          <tr><td class="animals">
+    <label for="myCheck4"><input type="checkbox" id="myCheck4" class="other">Animals</label>
+              </td></tr>
+          <tr><td class="food">
+    <label for="myCheck5"><input type="checkbox" id="myCheck5" class="other">Food</label>
+              </td></tr>
+          <tr><td class="education">
+    <label for="myCheck6"><input type="checkbox" id="myCheck6" class="other">Education</label>
+              </td></tr>
+          <tr><td class="artCulture">
+    <label for="myCheck7"><input type="checkbox" id="myCheck7" class="other">Art / Culture</label>
+              </td></tr>
+      </table>
   </div>
   <div class="grid-item">
     <div id="calendar"></div>
