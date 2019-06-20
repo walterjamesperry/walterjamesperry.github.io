@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: [ 'interaction', 'dayGrid', 'googleCalendar' ],
-        //height: 'parent',
+        height: 'auto',
         defaultView: 'dayGridWeek',
         eventLimit: true,
         header: {
