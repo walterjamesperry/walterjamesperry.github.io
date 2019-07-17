@@ -2,31 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f48e500-0c85-49c7-8159-3cf1a84e6b26" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/stylesheetLinters/stylelint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demos/css/myStyles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/agooglecalendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/demos/agooglecalendar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/amyGoogleCalendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/demos/amyGoogleCalendar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/fastui.css" beforeDir="false" afterPath="$PROJECT_DIR$/demos/css/fastui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/js/theme-chooser.js" beforeDir="false" afterPath="$PROJECT_DIR$/demos/js/theme-chooser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/rendering-hooks.html" beforeDir="false" afterPath="$PROJECT_DIR$/demos/rendering-hooks.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bootstrap-4.3.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/bootstrap-4.3.1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/jquery-3.3.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/jquery-3.3.1.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/popper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/popper.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/main.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/main.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/daygrid/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/daygrid/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/daygrid/main.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/daygrid/main.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/interaction/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/interaction/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/interaction/main.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/interaction/main.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/resource-timeline/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/resource-timeline/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/resource-timeline/main.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/resource-timeline/main.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/timegrid/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/timegrid/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/timegrid/main.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/timegrid/main.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/timeline/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/timeline/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/timeline/main.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/timeline/main.min.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,34 +14,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demos/agooglecalendar.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="70" />
-              <folding>
-                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-                <element signature="n#script#7;n#head#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demos/asimpleCut.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="20" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/demos/atest2.html">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="-1394">
+              <caret line="5" column="68" lean-forward="true" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -93,8 +47,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1" />
-    <option name="y" value="23" />
+    <option name="y" value="98" />
     <option name="width" value="1440" />
     <option name="height" value="830" />
   </component>
@@ -110,17 +63,6 @@
             <path>
               <item name="walterjamesperry.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="walterjamesperry.github.io" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="walterjamesperry.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="walterjamesperry.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="demos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="walterjamesperry.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="walterjamesperry.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="demos" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -182,11 +124,13 @@
       <workItem from="1561860235163" duration="4242000" />
       <workItem from="1561865561539" duration="4000" />
       <workItem from="1561868546682" duration="24000" />
+      <workItem from="1563035580727" duration="394000" />
+      <workItem from="1563391105602" duration="56000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6008000" />
+    <option name="totallyTimeSpent" value="6458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="830" extended-state="6" />
@@ -216,53 +160,16 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/demos/googlecal.html" />
     <entry file="file://$PROJECT_DIR$/calendar.html" />
-    <entry file="file://$PROJECT_DIR$/demos/jquery-ui-1.12.1/jquery-ui.js">
+    <entry file="file://$PROJECT_DIR$/demos/jquery-ui-1.12.1/jquery-ui.js" />
+    <entry file="file://$PROJECT_DIR$/demos/js/jquery-3.4.1.min.js" />
+    <entry file="file://$PROJECT_DIR$/demos/atest.html" />
+    <entry file="file://$PROJECT_DIR$/demos/agooglecalendar.html" />
+    <entry file="file://$PROJECT_DIR$/demos/asimpleCut.html" />
+    <entry file="file://$PROJECT_DIR$/demos/atest2.html" />
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demos/js/jquery-3.4.1.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demos/atest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demos/agooglecalendar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="70" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#7;n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demos/asimpleCut.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="20" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demos/atest2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="-1394">
+          <caret line="5" column="68" lean-forward="true" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
         </state>
       </provider>
     </entry>
