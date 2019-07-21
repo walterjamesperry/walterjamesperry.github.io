@@ -69,18 +69,22 @@
                 plugins: ['dayGrid', 'timeGrid', 'googleCalendar', 'momentPlugin'],
                 height: 'auto',
                 eventLimit: true,
+                nowIndicator: true,
+                minTime: "06:00:00",
+                maxTime: "21:00:00",
                 header: {
                     left: 'prev,next',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
-                defaultView: 'dayGridMonth',
+                defaultView: 'timeGridWeek',
                 googleCalendarApiKey: 'AIzaSyDCIlJlVDTxZJu4Kg3UPRLVh_2i4UuhzGg',
                 eventSources: [curSource[0], curSource[1], curSource[2], curSource[3], curSource[4], curSource[5],],
 
                 eventRender: function(info){
                     let $startTime = moment(info.event.start).format("DD-MM-YYYY HH:mm");
                     let $endTime = moment(info.event.end).format("DD-MM-YYYY HH:mm");
+                    console.log(info.event);
                     $(document).ready(function(){
                         $(info.el).popover({
                             container: "body",
@@ -91,6 +95,7 @@
                             title: info.event.title,
                             content: "Start: " + $startTime + "<br>" + "End: " + $endTime + "<br>" + "Location: " + info.event.extendedProps.location + "<br>" + "Description: " + info.event.extendedProps.description
                         });
+
                     });
                 },
                 eventClick: function(info) {
@@ -98,10 +103,11 @@
                     info.jsEvent.preventDefault();
 
                     if (confirm('Add this Event to your Schedule: ' + info.event.title + '?')) {
-                        //save to my schedule
+                        //save to my schedule ******************************************************************************************
                         let myJSON = JSON.stringify(info.event.title);
                         let myEventItem = "<li>" + myJSON + '     <button type="button" class="btn btn-danger btn-sm" onClick="$(this).parent().remove()">Remove</button>' + "</li>";
                         $("ol").append(myEventItem);
+                        // *************************************************************************************************************
                     }
                 },
                 //shows "Loading..." when google calender data is loading
@@ -120,7 +126,7 @@
 </head>
 <body>
 <div class="grid-container">
-    <div class="grid-item">
+    <div class="grid-item categories">
         <p>Categories</p>
         <table class="table table-borderless table-sm">
             <tbody>
@@ -137,7 +143,7 @@
             <tr>
                 <td class="align-middle humanities">
                     <div class="form-check">
-                        <input class="form-check-input other" type="checkbox" value="2" id="myCheck2" checked>>
+                        <input class="form-check-input other" type="checkbox" value="2" id="myCheck2" checked>
                         <label class="form-check-label" for="myCheck2">
                             Humanities
                         </label>
@@ -147,7 +153,7 @@
             <tr>
                 <td class="align-middle animals">
                     <div class="form-check">
-                        <input class="form-check-input other" type="checkbox" value="3" id="myCheck3" checked>>
+                        <input class="form-check-input other" type="checkbox" value="3" id="myCheck3" checked>
                         <label class="form-check-label" for="myCheck3">
                             Animals
                         </label>
@@ -157,7 +163,7 @@
             <tr>
                 <td class="align-middle food">
                     <div class="form-check">
-                        <input class="form-check-input other" type="checkbox" value="4" id="myCheck4" checked>>
+                        <input class="form-check-input other" type="checkbox" value="4" id="myCheck4" checked>
                         <label class="form-check-label" for="myCheck4">
                             Food
                         </label>
@@ -167,7 +173,7 @@
             <tr>
                 <td class="align-middle education">
                     <div class="form-check">
-                        <input class="form-check-input other" type="checkbox" value="5" id="myCheck5" checked>>
+                        <input class="form-check-input other" type="checkbox" value="5" id="myCheck5" checked>
                         <label class="form-check-label" for="myCheck5">
                             Education
                         </label>
@@ -177,7 +183,7 @@
             <tr>
                 <td class="align-middle artCulture">
                     <div class="form-check">
-                        <input class="form-check-input other" type="checkbox" value="6" id="myCheck6" checked>>
+                        <input class="form-check-input other" type="checkbox" value="6" id="myCheck6" checked>
                         <label class="form-check-label" for="myCheck6">
                             Art / Culture
                         </label>
@@ -194,11 +200,33 @@
         <div id="loading">loading...</div>
     </div>
     <div class="grid-item">
-        <p>Schedule:</p>
-        <!-- This is where the event titles are appended to by jQery -->
-        <ol>
-        </ol>
+		<p>&nbsp;</p>
+		
+        <div class="container" style="border: 1px solid #000000; border-radius: 10px; background: lightgrey;">
+			<p></p>
+            <h1 class="text-center" style="color: red">My Events:</h1>
+			<div class="row">
+				<div class="col-2 text-center" style="color: #0fb9ad"><h4>Title</h4></div>
+				<div class="col-2 text-center" style="color: #0fb9ad"><h4>Date</h4></div>
+				<div class="col-2 text-center" style="color: #0fb9ad"><h4>Time</h4></div>
+				<div class="col-3 text-center" style="color: #0fb9ad"><h4>Location</h4></div>
+				<div class="col-3 text-center" style="color: #0fb9ad"><h4>Remove Btn</h4></div>
+			</div>
+            <!-- This is where the event titles are appended to by jQery -->
+            <ol>
+            </ol>
+        </div>
     </div>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
 </div>
 <script>
     let $myChkox1 = $('input.form-check-input[id="myCheck1"]');
@@ -243,6 +271,14 @@
         else
             $(".cat6").hide();
     });
+</script>
+<script type="text/javascript">
+
+    //Sending a Message from an my HTML Element to Wix Page Code
+
+    function respond() {
+        window.parent.postMessage("This is my message for wix page code", "*");
+    }
 </script>
 </body>
 </html>

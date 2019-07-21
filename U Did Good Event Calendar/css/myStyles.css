@@ -52,12 +52,12 @@ body {
 /* So very important -- eliminated the flickering on mouseover -- */
 .popover{ pointer-events:none; }
 
-.fc-day-header span{
-    height: 50px;
-    width: 50px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
+.fc-day-header{
+    /* height: 50px;
+    width: 50px; */
+    background-color: #00b8ab;
+    /* border-radius: 50%;
+    display: inline-block; */
 }
 /* .dot {
     height: 50px;
@@ -67,3 +67,10 @@ body {
     display: inline-block;
 }
  */
+.fc-unthemed td.fc-today{
+    background: #00b8ab;
+}
+div.categories {
+    position: relative;
+    top: 150px;
+}

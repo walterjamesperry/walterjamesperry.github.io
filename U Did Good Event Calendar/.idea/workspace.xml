@@ -12,24 +12,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+            <state relative-caret-position="343">
+              <caret line="145" column="109" selection-start-line="145" selection-start-column="109" selection-end-line="145" selection-end-column="109" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#script#0;n#body#0;n#html#0;n#!!top" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/myStyles.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -47,6 +39,9 @@
     <findStrings>
       <find>All</find>
       <find>all</find>
+      <find>moment</find>
+      <find>sched</find>
+      <find>cate</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -132,16 +127,26 @@
       <workItem from="1562023834056" duration="6267000" />
       <workItem from="1562079081257" duration="1883000" />
       <workItem from="1562083236514" duration="65000" />
+      <workItem from="1562111335180" duration="420000" />
+      <workItem from="1562611874431" duration="266000" />
+      <workItem from="1562631960548" duration="1344000" />
+      <workItem from="1562701724603" duration="753000" />
+      <workItem from="1562717121273" duration="672000" />
+      <workItem from="1563035458919" duration="48000" />
+      <workItem from="1563668195080" duration="1118000" />
+      <workItem from="1563673879971" duration="437000" />
+      <workItem from="1563674447563" duration="74000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42461000" />
+    <option name="totallyTimeSpent" value="47593000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="830" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22339676" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33051446" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -196,35 +201,24 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/demos/dynamic-add-remove.html" />
-    <entry file="file://$USER_HOME$/GitHub/walterjamesperry.github.io/demos/asimpleCut.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-381">
-          <caret line="100" column="241" lean-forward="true" selection-start-line="100" selection-start-column="52" selection-end-line="100" selection-end-column="241" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/GitHub/walterjamesperry.github.io/demos/agooglecalendar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2055">
-          <caret line="137" column="153" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="153" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/GitHub/walterjamesperry.github.io/demos/asimpleCut.html" />
+    <entry file="file://$USER_HOME$/GitHub/walterjamesperry.github.io/demos/agooglecalendar.html" />
     <entry file="file://$PROJECT_DIR$/css/bootstrap-grid.css" />
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-          <folding>
-            <element signature="n#script#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/myStyles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        <state relative-caret-position="233">
+          <caret line="51" column="10" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="145" column="109" selection-start-line="145" selection-start-column="109" selection-end-line="145" selection-end-column="109" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
