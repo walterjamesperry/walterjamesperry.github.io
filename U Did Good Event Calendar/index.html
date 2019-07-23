@@ -18,7 +18,7 @@
 <script src="packages/daygrid/main.min.js"></script> 
 <script src="packages/timegrid/main.min.js"></script> 
 <script src="packages/google-calendar/main.min.js"></script> 
-<script src="js/moment.js"></script> 
+<script src="js/moment-with-locales.js"></script> 
 <script>
         let curSource = [];
         curSource[0] = {
@@ -86,7 +86,7 @@
                 eventRender: function(info){
                     let $startTime = moment(info.event.start).format("DD-MM-YYYY HH:mm");
                     let $endTime = moment(info.event.end).format("DD-MM-YYYY HH:mm");
-                    console.log(info.event);
+                    //console.log(info.event);
                     $(document).ready(function(){
                         $(info.el).popover({
                             container: "body",
@@ -106,14 +106,24 @@
 
                     if (confirm('Add this Event to your Schedule: ' + info.event.title + '?')) {
                         //save to my schedule ******************************************************************************************
-                        let myJSON = JSON.stringify(info.event.title);
-						let myEName = JSON.stringify(info.event.name);
-						let myEDate = JSON.stringify(info.event.date);
-						let myEStartTime = JSON.stringify(info.event.startTime);
-						let myEEndTime = JSON.stringify(info.event.endTime);
-						let myELoc = JSON.stringify(info.event.location);
-                        let myEventItem = "<li>" + myJSON + '     <button type="button" class="btn btn-danger btn-sm" onClick="$(this).parent().remove()">Remove</button>' + "</li>";
+                        //let myJSON = JSON.stringify(info.event.title);
+						let myETitle = JSON.stringify(info.event.title);
+						//let myEDate = JSON.stringify(info.event.date);
+						let myEStartTime = JSON.stringify(info.event.start);
+						let myEEndTime = JSON.stringify(info.event.end);
+						let myELoc = JSON.stringify(info.event.extendedProps.location);
+						//these vars work
+						//console.log(myETitle);
+						//console.log(myEDate);
+						//console.log(myEStartTime);
+						//console.log(myEEndTime);
+						//console.log(myELoc);
+                        let myEventItem = "<li>" + myETitle + " " + myEStartTime + " - " + myEEndTime + " " + myELoc + '     <button type="button" class="btn btn-danger btn-sm" onClick="$(this).parent().remove()">Remove</button>' + "</li><li><hr></li>";
                         $("ol").append(myEventItem);
+						
+						//two things left
+						//send to google sheet
+						//send email
                         // *************************************************************************************************************
                     }
                 },
@@ -186,7 +196,7 @@
     <p>&nbsp;</p>
     <div class="container" style="border: 1px solid #666666; border-radius: 10px; background: #f7f7f7;">
       <p></p>
-      <h1 class="text-center" style="color: red">My Events:</h1>
+      <h1 class="text-center" style="color: red; font-weight: bold;">My Events</h1>
       <div class="row">
         <div class="col-2 text-center" style="color: #0fb9ad">
           <h4>Name</h4>
@@ -210,19 +220,19 @@
       <form id="test-form">
         <div>
           <label>Name</label>
-          <input type="text" name="form_name" placeholder="Name"/>
+          <input type="text" name="form_name" value=""/>
         </div>
         <div>
           <label>Date</label>
-          <input type="text" name="form_date" placeholder="Date"/>
+          <input type="text" name="form_date"  value=""/>
         </div>
         <div>
           <label>Time</label>
-          <input type="text" name="form_time" placeholder="Time"/>
+          <input type="text" name="form_time"  value=""/>
         </div>
         <div>
           <label>Location</label>
-          <input type="text" name="form_location" placeholder="Location"/>
+          <input type="text" name="form_location" value=""/>
         </div>
         <div>
           <button type="submit" id="submit-form">Submit</button>
