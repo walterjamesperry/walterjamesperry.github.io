@@ -166,14 +166,6 @@
               <label class="form-check-label" for="myCheck6"> Art / Culture </label>
             </div></td>
         </tr>
-        <tr>
-          <td><span id="theLabel" class="label">HTML Label</span> <br/>
-            <br/>
-            <button class="button" onclick="button_click()">Send Message</button>
-            <br/>
-            <br/>
-            <input type="text" class="input" id="theMessage"></td>
-        </tr>
       </tbody>
     </table>
   </div>
@@ -190,7 +182,7 @@
       <h1 class="text-center" style="color: red">My Events:</h1>
       <div class="row">
         <div class="col-2 text-center" style="color: #0fb9ad">
-          <h4>Title</h4>
+          <h4>Name</h4>
         </div>
         <div class="col-2 text-center" style="color: #0fb9ad">
           <h4>Date</h4>
@@ -208,6 +200,27 @@
       <!-- This is where the event titles are appended to by jQery -->
       <ol>
       </ol>
+      <form id="test-form">
+        <div>
+          <label>Name</label>
+          <input type="text" name="form_name" placeholder="Name"/>
+        </div>
+        <div>
+          <label>Date</label>
+          <input type="text" name="form_date" placeholder="Date"/>
+        </div>
+        <div>
+          <label>Time</label>
+          <input type="text" name="form_time" placeholder="Time"/>
+        </div>
+        <div>
+          <label>Location</label>
+          <input type="text" name="form_location" placeholder="Location"/>
+        </div>
+        <div>
+          <button type="submit" id="submit-form">Submit</button>
+        </div>
+      </form>
     </div>
   </div>
   <p>&nbsp;</p>
@@ -265,18 +278,21 @@
             $(".cat6").hide();
     });
 </script> 
-<script type="text/javascript">
-      // when a message is received from the page code
-      window.onmessage = (event) => {
-        if (event.data) {
-          document.getElementById("theLabel").innerHTML = event.data;
-        }
-      };
+<script>
+var $form = $('form#test-form'),
+    url = 'https://script.google.com/macros/s/AKfycby0rgcp8gn_KwpamTp5aoBTzxPNzZjGGryAN9fEYJ2yqK8UKPCW/exec'
 
-      // send message to the page code
-      function button_click() {
-        window.parent.postMessage(document.getElementById("theMessage").value, "*");
-      }
-    </script>
+$('#submit-form').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: $form.serializeObject()
+  }).success(
+    // do something
+  );
+})
+</script>
 </body>
 </html>
