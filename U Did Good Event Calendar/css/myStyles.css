@@ -76,3 +76,47 @@ div.categories {
 	padding-right: 50px;
 
 }
+.fc-right .fc-prev-button, .fc-right .fc-next-button{
+    background-color: #ff0000;
+    background-image: none;
+}
+.fc-button-primary {
+	color: #dee232;
+	background-color: #ffffff;
+	border-color: #ffffff;
+}
+/* unvisited link */
+.fc-button-primary:link {
+	color: #dee232;
+	background-color: #ffffff;
+	border-color: #ffffff;
+}
+/* visited link */
+.fc-button-primary:visited {
+	color: #dee232;
+	background-color: #ffffff;
+	border-color: #ffffff;
+}
+/* mouse over link */
+fc-button-primary:hover {
+	color: #dee232;
+	background-color: #ffffff;
+	border-color: #ffffff;
+}
+/* selected link */
+fc-button-primary:active {
+	color: #dee232;
+	background-color: #ffffff;
+	border-color: #ffffff;
+}
+.fc-button-active {
+	color: #dee232;
+	background-color: #ffffff;
+	border-color: #ffffff;
+}
+.fc-toolbar h2 {
+	color: #0fb9ad;
+}
+button.fc-button.fc-button-active.fc-button-primary.fc-timeGridWeek-button {
+	background: white;
+}

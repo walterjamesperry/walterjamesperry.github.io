@@ -73,10 +73,11 @@
                 nowIndicator: true,
                 minTime: "06:00:00",
                 maxTime: "21:00:00",
+				themeSystem: 'standard',
                 header: {
-                    left: 'prev,next',
+                    left: 'prevYear,prev,next,nextYear',
                     center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,today'
                 },
                 defaultView: 'timeGridWeek',
                 googleCalendarApiKey: 'AIzaSyDCIlJlVDTxZJu4Kg3UPRLVh_2i4UuhzGg',
@@ -106,6 +107,11 @@
                     if (confirm('Add this Event to your Schedule: ' + info.event.title + '?')) {
                         //save to my schedule ******************************************************************************************
                         let myJSON = JSON.stringify(info.event.title);
+						let myEName = JSON.stringify(info.event.name);
+						let myEDate = JSON.stringify(info.event.date);
+						let myEStartTime = JSON.stringify(info.event.startTime);
+						let myEEndTime = JSON.stringify(info.event.endTime);
+						let myELoc = JSON.stringify(info.event.location);
                         let myEventItem = "<li>" + myJSON + '     <button type="button" class="btn btn-danger btn-sm" onClick="$(this).parent().remove()">Remove</button>' + "</li>";
                         $("ol").append(myEventItem);
                         // *************************************************************************************************************
@@ -128,13 +134,13 @@
 <body>
 <div class="grid-container">
   <div class="grid-item categories">
-    <p>Categories</p>
+    <p class="text-center"><span style="color: #ef588d; font-size: 36px;">Categories</span><br>(click one or more) </p>
     <table class="table table-borderless table-sm">
       <tbody>
         <tr>
           <td class="align-middle environment"><div class="form-check">
               <input class="form-check-input other" type="checkbox" value="1" id="myCheck1" checked>
-              <label class="form-check-label" for="myCheck1"> Environment </label>
+              <label class="form-check-label" for="myCheck1">Environment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             </div></td>
         </tr>
         <tr>
@@ -178,7 +184,7 @@
   </div>
   <div class="grid-item">
     <p>&nbsp;</p>
-    <div class="container" style="border: 1px solid #000000; border-radius: 10px; background: lightgrey;">
+    <div class="container" style="border: 1px solid #666666; border-radius: 10px; background: #f7f7f7;">
       <p></p>
       <h1 class="text-center" style="color: red">My Events:</h1>
       <div class="row">
@@ -295,17 +301,5 @@ $('#submit-form').on('click', function(e) {
   );
 })
 </script> 
-<script>
-function showValues() {
-	var fields = $( ":input" ).serializeArray();
-	$( "#results" ).empty();
-	jQuery.each( fields, function( i, field ) {
-		$( "#results" ).append( field.value + " " );
-	});
-}
-  $( ":checkbox, :radio" ).click( showValues );
-  $( "select" ).change( showValues );
-  showValues();
-</script>
 </body>
 </html>
