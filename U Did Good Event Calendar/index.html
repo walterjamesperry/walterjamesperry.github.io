@@ -19,6 +19,12 @@
 <script src="packages/timegrid/main.min.js"></script> 
 <script src="packages/google-calendar/main.min.js"></script> 
 <script src="js/moment.js"></script> 
+<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script> 
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_w7MxolK8JoPVBMcoLLdYb");
+   })();
+</script> 
 <script>
         let curSource = [];
         curSource[0] = {
@@ -118,6 +124,7 @@
 						//console.log(myEStartTime);
 						//console.log(myEEndTime);
 						//console.log(myELoc);
+						let getDataIntoForm =  myETitle + " | " + myEStartTime + " - " + myEEndTime + " | " + myELoc;
                         let myEventItem = "<li>" + myETitle + " " + myEStartTime + " - " + myEEndTime + " " + myELoc + '     <button type="button" class="btn btn-danger btn-sm" onClick="$(this).parent().remove()">Remove</button>';
                         $("ol").append(myEventItem);
 						
@@ -215,25 +222,18 @@
           <h4>Remove Btn</h4>
         </div>
       </div>
-      <!-- This is where the event titles are appended to by jQery -->
+      <!-- This is where the event titles are appended to by jQery --> 
+      <!-- I need jquery to make the list item and to insert data into hidden form -->
       <ol>
       </ol>
-      <form id="test-form">
+      <form id="myform" method="post">
+        <!--<form id="test-form">-->
         <div>
-          <label>Name</label>
-          <input type="text" name="form_name" value=""/>
+          <input type="hidden" name="text" value=""/>
         </div>
         <div>
-          <label>Time</label>
-          <input type="text" name="form_time"  value=""/>
-        </div>
-        <div>
-          <label>Location</label>
-          <input type="text" name="form_location" value=""/>
-        </div>
-        <div>
-          <button type="submit" id="submit-form" onclick="sendData({test:'ok'})">Submit</button>
-        </div>
+          <button type="submit" class="btn btn-light">Save My Events Schedule</button>
+          <span>&nbsp;&nbsp;&nbsp;(an email will be sent to you)</span> </div>
       </form>
     </div>
   </div>
@@ -285,6 +285,8 @@
 <script>
 	/* this will not work since I do not use jquery with ajax support */
 	/* the jquery ajax fuctionality breaks the calendar. More specifically I do not know if it is Wix or Github breaking the ajax functionality. Because it works locally on my machine */
+	
+	/* Change this form name */
 var $form = $('form#test-form'),
     url = 'https://script.google.com/macros/s/AKfycby0rgcp8gn_KwpamTp5aoBTzxPNzZjGGryAN9fEYJ2yqK8UKPCW/exec'
 
@@ -305,31 +307,28 @@ $('#submit-form').on('click', function(e) {
 })
 </script> 
 <script>
-	function sendData(data) {
-  var XHR = new XMLHttpRequest();
-  var FD  = new FormData();
+	var myform = $("form#myform");
+	myform.submit(function(event){
+		event.preventDefault();
+		
+		//do other things
+		
+		
 
-  // Push our data into our FormData object
-  for(name in data) {
-    FD.append(name, data[name]);
-  }
+	  // Change to your service ID, or keep using the default service
+	  var service_id = "default_service";
+	  var template_id = "volunteer_events";
 
-  // Define what happens on successful data submission
-  XHR.addEventListener('load', function(event) {
-    alert('Yeah! Data sent and response loaded.');
-  });
-
-  // Define what happens in case of error
-  XHR.addEventListener('error', function(event) {
-    alert('Oops! Something went wrong.');
-  });
-
-  // Set up our request
-  XHR.open('POST', 'https://example.com/cors.php');
-
-  // Send our FormData object; HTTP headers are set automatically
-  XHR.send(FD);
-}
-	</script>
+	  emailjs.sendForm(service_id,template_id,myform[0])
+		.then(function(){ 
+			alert("Sent!");
+		   myform.find("button").text("Send");
+		}, function(err) {
+		   alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+		   myform.find("button").text("Send");
+		});
+	  return false;
+	});
+</script>
 </body>
 </html>
