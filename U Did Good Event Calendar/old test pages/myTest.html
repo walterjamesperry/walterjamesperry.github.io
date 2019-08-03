@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Dynamically Add / Remove Table Rows</title>
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+<style type="text/css">
+form {
+    margin: 20px 0;
+}
+form input, button {
+    padding: 5px;
+}
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid #cdcdcd;
+}
+table th, table td {
+    padding: 10px;
+    text-align: left;
+}
+fieldset {
+    border: none;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script> 
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_w7MxolK8JoPVBMcoLLdYb");
+   })();
+</script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".add-row").click(function(){
+			var eTitle = $("#title").val();
+			var eDate = $("#date").val();
+			var eTime = $("#time").val();
+			var eLocation = $("#location").val();
+			var uniqueVal = 3;
+			var tableMarkup = "<tr><td>" + eTitle + "</td><td>" + eDate + "</td><td>" + eTime + "</td><td>" + eLocation + "</td><td><input type='checkbox' name='removeBtn1' id='t" + uniqueVal++ +"' /></td></tr>";
+			
+			var formMarkup = "<fieldset><input type='hidden' id='title" + uniqueVal + "' value='' /><input type='hidden' id='date" + uniqueVal + "' value='' /><input type='hidden' id='time" + uniqueVal + "' value='' /><input type='hidden' id='location" + uniqueVal + "' value='' /><input type='checkbox' name='removeBtn2' id='" + uniqueVal +"' hidden /></fieldset>";
+			//append to form
+            $("table tbody").append(tableMarkup);
+			$("form#myform").append(formMarkup);
+			
+			
+			
+			//if ($('input[name="removeBtn1"]').prop('checked')){}
+			//somehow have the delete_row button delete the form row too
+			//$('input[name="removeBtn1"]').prop('checked');
+			//$('input[name="removeBtn2"]').prop('checked');
+			
+			//var chk1 = $("input[name="removeBtn1"]");
+			//var chk2 = $("input[name="removeBtn2"]");
+//need to write if here ?????
+			//if (chk1:checked){
+      			//chk2.checked = true;
+				//}
+        });//end add row click
+// this should remove both (visible and hidden) event items
+        // Find and remove selected table rows
+        $(".delete-row").click(function(){
+            $("table tbody").find('input[name="removeBtn1"]').each(function(){
+            	if($(this).is(":checked")){
+                    $(this).parents("tr").remove();
+                }
+            });
+			$("form#myform").find('input[name="removeBtn2"]').each(function(){
+				if($(this).is(":checked")){
+				   $(this).parents("fieldset").remove();
+				   }
+			})
+        }); //end .delete-row click
+    }); //end document ready 
+</script>
+</head>
+<body>
+<!--<form>
+  <input type="text" id="title" placeholder="Event Name">
+  <input type="text" id="date" placeholder="Date">
+  <input type="text" id="time" placeholder="Time">
+  <input type="text" id="location" placeholder="Location">
+  <input type="button" class="add-row" value="Add Event">
+</form>-->
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Location</th>
+      <th>Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Event Name 1</td>
+      <td>Today 2019</td>
+      <td>12pm - 12am</td>
+      <td>123 Red St., Austin, Tx 78758</td>
+      <td><input type="checkbox" name="removeBtn" id="1" /></td>
+    </tr>
+    <tr>
+      <td>Event Name 2</td>
+      <td>Yesturday 2019</td>
+      <td>12pm - 12am</td>
+      <td>123 Red St., Austin, Tx 78758</td>
+      <td><input type="checkbox" name="removeBtn" id="2" /></td>
+    </tr>
+    <tr>
+      <td>Event Name 3</td>
+      <td>Tomorrow 2019</td>
+      <td>12pm - 12am</td>
+      <td>123 Red St., Austin, Tx 78758</td>
+      <td><input type="checkbox" name="removeBtn" id="3" /></td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="delete-row">Remove Checked Event(s)</button>
+<button type="submit">Send</button>
+<form id="myform" method="post">
+  <fieldset>
+    <input type="hidden" id="title1" value="Event Name 1" />
+    <input type="hidden" id="date1" value="Today 2019" />
+    <input type="hidden" id="time1" value="12pm - 12am" />
+    <input type="hidden" id="location1" value="123 Red St., Austin, Tx 78758" />
+  </fieldset>
+  <fieldset>
+    <input type="hidden" id="title2" value="Event Name 2" />
+    <input type="hidden" id="date2" value="Yesturday 2019" />
+    <input type="hidden" id="time2" value="12pm - 12am" />
+    <input type="hidden" id="location2" value="123 Red St., Austin, Tx 78758" />
+  </fieldset>
+  <fieldset>
+    <input type="hidden" id="title3" value="Event Name 3" />
+    <input type="hidden" id="date3" value="Tomorrow 2019" />
+    <input type="hidden" id="time3" value="12pm - 12am" />
+    <input type="hidden" id="location3" value="123 Red St., Austin, Tx 78758" />
+  </fieldset>
+</form>
+<script>
+var myform = $("form#myform");
+	// this works
+	console.log(myform[0]);
+
+
+myform.submit(function(event){
+	console.log("Submit pressed");
+	event.preventDefault();
+	
+/*for(var i=0; i < myform[0].elements.length; i++){
+    var e = myform[0].elements[i];
+    console.log(e.id + "=" + e.value);
+	}*/
+/*	var params = myform.serializeArray().reduce(function(obj, item) {
+     obj[item.name] = item.value;
+     return obj;
+  }, {});*/
+
+  // Change to your service ID, or keep using the default service
+/*  var service_id = "default_service";
+  var template_id = "volunteer_events";
+  
+  myform.find("button").text("Sending...");
+  emailjs.send(service_id, template_id, params)
+  	.then(function(){ 
+       alert("Sent!");
+       myform.find("button").text("Send");
+     }, function(err) {
+       alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+       myform.find("button").text("Send");
+    });*/
+
+  return false;
+});
+	</script>
+</body>
+</html>

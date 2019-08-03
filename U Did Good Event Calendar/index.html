@@ -10,8 +10,7 @@
 <link rel="stylesheet" href="packages/daygrid/main.min.css">
 <link rel="stylesheet" href="packages/timegrid/main.min.css">
 <link rel="stylesheet" href="css/myStyles.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
 <script src="packages/core/main.min.js"></script> 
@@ -19,12 +18,6 @@
 <script src="packages/timegrid/main.min.js"></script> 
 <script src="packages/google-calendar/main.min.js"></script> 
 <script src="js/moment.js"></script> 
-<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script> 
-<script type="text/javascript">
-   (function(){
-      emailjs.init("user_w7MxolK8JoPVBMcoLLdYb");
-   })();
-</script> 
 <script>
         let curSource = [];
         curSource[0] = {
@@ -111,27 +104,22 @@
                     info.jsEvent.preventDefault();
 
                     if (confirm('Add this Event to your Schedule: ' + info.event.title + '?')) {
-                        //save to my schedule ******************************************************************************************
-                        //let myJSON = JSON.stringify(info.event.title);
+                        //save to my events (onscreen) and create hidden form and save to googlesheets and send an email 
+						//*****************************************************************************************************
 						let myETitle = JSON.stringify(info.event.title);
 						//let myEDate = JSON.stringify(info.event.date);
 						let myEStartTime = JSON.stringify(info.event.start);
 						let myEEndTime = JSON.stringify(info.event.end);
 						let myELoc = JSON.stringify(info.event.extendedProps.location);
-						//these vars work
-						//console.log(myETitle);
-						//console.log(myEDate);
-						//console.log(myEStartTime);
-						//console.log(myEEndTime);
-						//console.log(myELoc);
-						let getDataIntoForm =  myETitle + " | " + myEStartTime + " - " + myEEndTime + " | " + myELoc;
-                        let myEventItem = "<li>" + myETitle + " " + myEStartTime + " - " + myEEndTime + " " + myELoc + '     <button type="button" class="btn btn-danger btn-sm" onClick="$(this).parent().remove()">Remove</button>';
-                        $("ol").append(myEventItem);
+						let uniqueVal = 3;
 						
-						//two things left
-						//send to google sheet
-						//send email
-                        // *************************************************************************************************************
+                        let myEventItem = "<li>" + myETitle + " " + myEStartTime + " - " + myEEndTime + " " + myELoc + "     <button type='button' class='btn btn-sm' name='removeBtn1' id='e" + uniqueVal++ + "' style='color: #0fb9ad' onClick='$(this).parent().remove()'>Remove</button></li>";
+						
+						let formMarkup = "<fieldset><input type='hidden' id='title" + uniqueVal + "' value='' name='form_name' /><input type='hidden' id='date" + uniqueVal + "' value='' name='form_date' /><input type='hidden' id='time" + uniqueVal + "' value='' name='form_time' /><input type='hidden' id='location" + uniqueVal + "' value='' name='form_location' /><input type='checkbox' name='removeBtn2' id='f" + uniqueVal +"' hidden='hidden' /></fieldset>";
+						
+						$("ol").append(myEventItem);
+						$("form#myform").append(formMarkup);
+                        // *******************************************************************************************************
                     }
                 },
                 //shows "Loading..." when google calender data is loading
@@ -142,10 +130,6 @@
             //very important
             calendar.render();
         });
-        // send text to the Wix page code
-        function sendMessageToWix() {
-            window.parent.postMessage($("#theText").value, "*");
-        }
     </script>
 </head>
 <body>
@@ -222,18 +206,17 @@
           <h4>Remove Btn</h4>
         </div>
       </div>
-      <!-- This is where the event titles are appended to by jQery --> 
-      <!-- I need jquery to make the list item and to insert data into hidden form -->
+      <!-- This is where jQuery appends the event information on screen --> 
       <ol>
       </ol>
-      <form id="myform" method="post">
-        <!--<form id="test-form">-->
-        <div>
-          <input type="hidden" name="text" value=""/>
-        </div>
-        <div>
-          <button type="submit" class="btn btn-light">Save My Events Schedule</button>
-          <span>&nbsp;&nbsp;&nbsp;(an email will be sent to you)</span> </div>
+      <form class="gform" id="myform" method="post" action="https://script.google.com/macros/s/AKfycby0rgcp8gn_KwpamTp5aoBTzxPNzZjGGryAN9fEYJ2yqK8UKPCW/exec">
+		  <!-- This is where jQuery appends the event information hidden form--> 
+          <button type="submit" id="submit-form" class="btn btn-light">Save My Events</button>
+          <span>&nbsp;&nbsp;&nbsp;(your events schedule will be emailed to you)</span>
+			<div style="display:none" class="thankyou_message">
+ 				<!-- You can customize the thankyou message by editing the code below -->
+ 				<h2>Your schedule has been sent.</h2>
+			</div>
       </form>
     </div>
   </div>
@@ -282,53 +265,6 @@
             $(".cat6").hide();
     });
 </script> 
-<script>
-	/* this will not work since I do not use jquery with ajax support */
-	/* the jquery ajax fuctionality breaks the calendar. More specifically I do not know if it is Wix or Github breaking the ajax functionality. Because it works locally on my machine */
-	
-	/* Change this form name */
-var $form = $('form#test-form'),
-    url = 'https://script.google.com/macros/s/AKfycby0rgcp8gn_KwpamTp5aoBTzxPNzZjGGryAN9fEYJ2yqK8UKPCW/exec'
-
-$('#submit-form').on('click', function(e) {
-  e.preventDefault();
-  var jqxhr = $.ajax({
-    url: url,
-    method: "GET",
-    dataType: "json",
-    data: $form.serializeArray(),
-	success: function(output) { 
-        // success
-    },
-    error: function() {
-        //alert('Error, please refresh the page');
-    }
-  })
-})
-</script> 
-<script>
-	var myform = $("form#myform");
-	myform.submit(function(event){
-		event.preventDefault();
-		
-		//do other things
-		
-		
-
-	  // Change to your service ID, or keep using the default service
-	  var service_id = "default_service";
-	  var template_id = "volunteer_events";
-
-	  emailjs.sendForm(service_id,template_id,myform[0])
-		.then(function(){ 
-			alert("Sent!");
-		   myform.find("button").text("Send");
-		}, function(err) {
-		   alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
-		   myform.find("button").text("Send");
-		});
-	  return false;
-	});
-</script>
+<script data-cfasync="false" type="text/javascript" src="js/form-submission-handler.js"></script>
 </body>
 </html>

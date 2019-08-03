@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>New Test</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style type="text/css">
+form {
+    margin: 20px 0;
+}
+form input, button {
+    padding: 5px;
+}
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid #cdcdcd;
+}
+table th, table td {
+    padding: 10px;
+    text-align: left;
+}
+fieldset {
+    border: none;
+}
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+		$("input[name='removeBtn1']").change(function() {
+			$("input[name='removeBtn2']").prop("checked", $(this).is(":checked"));
+		});
+			// Find and remove selected table rows
+			$(".delete-row").click(function(){
+				$("table tbody").find('input[name="removeBtn1"]').each(function(){
+					if($(this).is(":checked")){
+						$(this).parents("tr").remove();
+					}
+				});
+				$("form#myform").find('input[name="removeBtn2"]').each(function(){
+					if($(this).is(":checked")){
+					   $(this).parents("fieldset").remove();
+					   }
+				})
+			}); //end .delete-row click
+    }); //end document ready 
+</script>
+</head>
+
+<body>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Location</th>
+      <th>Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Event Name 1</td>
+      <td>Today 2019</td>
+      <td>12pm - 12am</td>
+      <td>123 Red St., Austin, Tx 78758</td>
+      <td><input type="checkbox" name="removeBtn1" id="t1" /></td>
+    </tr>
+    <tr>
+      <td>Event Name 2</td>
+      <td>Yesturday 2019</td>
+      <td>12pm - 12am</td>
+      <td>123 Red St., Austin, Tx 78758</td>
+      <td><input type="checkbox" name="removeBtn1" id="t2" /></td>
+    </tr>
+    <tr>
+      <td>Event Name 3</td>
+      <td>Tomorrow 2019</td>
+      <td>12pm - 12am</td>
+      <td>123 Red St., Austin, Tx 78758</td>
+      <td><input type="checkbox" name="removeBtn1" id="t3" /></td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="delete-row">Remove Checked Event(s)</button>
+<form id="myform">
+  <fieldset>
+    <input type="hidden" id="title1" value="Event Name 1" />
+    <input type="hidden" id="date1" value="Today 2019" />
+    <input type="hidden" id="time1" value="12pm - 12am" />
+    <input type="hidden" id="location1" value="123 Red St., Austin, Tx 78758" />
+    <input type="hidden" name="removeBtn2" id="f1" hidden="hidden" />
+  </fieldset>
+  <fieldset>
+    <input type="hidden" id="title2" value="Event Name 2" />
+    <input type="hidden" id="date2" value="Yesturday 2019" />
+    <input type="hidden" id="time2" value="12pm - 12am" />
+    <input type="hidden" id="location2" value="123 Red St., Austin, Tx 78758" />
+    <input type="hidden" name="removeBtn2" id="f2" hidden="hidden" />
+  </fieldset>
+  <fieldset>
+    <input type="hidden" id="title3" value="Event Name 3" />
+    <input type="hidden" id="date3" value="Tomorrow 2019" />
+    <input type="hidden" id="time3" value="12pm - 12am" />
+    <input type="hidden" id="location3" value="123 Red St., Austin, Tx 78758" />
+    <input type="hidden" name="removeBtn2" id="f3" hidden="hidden" />
+  </fieldset>
+  <button type="submit">Submit Events</button>
+</form>
+<script>
+	let myform = $("form#myform");
+	myform.submit(function(event){
+		for(var i=0; i < myform[0].elements.length; i++){
+		var e = myform[0].elements[i];
+		console.log(e.id + "=" + e.value);
+		}
+		event.preventDefault();
+		return false;
+	});
+</script>
+</body>
+</html>

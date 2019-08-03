@@ -339,3 +339,6 @@ button.fc-timeGridDay-button.fc-button.fc-button-primary.fc-button-active {
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
+fieldset { 
+  border: none;
+}
