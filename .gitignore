@@ -1,5 +1,6 @@
-
 img/banner/.DS_Store
 img/.DS_Store
 img/art/.DS_Store
 .DS_Store
+.idea
+node_modules/
